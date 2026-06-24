@@ -6,7 +6,7 @@ import 'chartjs-adapter-date-fns'
 
 ChartJS.register(CategoryScale, LinearScale, PointElement, LineElement, Tooltip, TimeScale)
 
-export default function AnimatedChart({ labels, data }: { labels: string[] | number[]; data: number[] }) {
+export default function AnimatedChart({ labels, data }: { labels: string[]; data: number[] }) {
   const chartData = {
     labels,
     datasets: [
@@ -33,7 +33,7 @@ export default function AnimatedChart({ labels, data }: { labels: string[] | num
   }
 
   return (
-    <motion.div initial={{ opacity: 0, y: 6 }} animate={{ opacity: 1, y: 0 }} className="chart-wrapper p-4 bg-ink-800 rounded-lg">
+    <motion.div initial={{ opacity: 0, y: 6 }} animate={{ opacity: 1, y: 0 }} className="w-full h-full">
       <Line data={chartData} options={options} />
     </motion.div>
   )
