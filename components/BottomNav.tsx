@@ -1,5 +1,5 @@
 'use client'
-import { Page } from '@/app/page'
+import { Page } from '../app/page'
 
 const tabs: { id: Page; label: string; icon: string }[] = [
   { id: 'home', label: 'Home', icon: '⌂' },
