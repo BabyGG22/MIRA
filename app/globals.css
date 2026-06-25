@@ -1,29 +1,96 @@
-@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700;800&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&family=Inter:wght@300;400;500;600&display=swap');
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
 
 :root {
-  --glass: rgba(255,255,255,0.04);
-  --muted: #94a3b8;
+  --void: #07071A;
+  --navy: #0D1240;
+  --indigo: #1B2FA8;
+  --sky: #38BDF8;
+  --snow: #E2E8F0;
+  --muted: #64748B;
+  --surface: #0F1535;
+  --border: rgba(56, 189, 248, 0.12);
 }
 
-html, body, #__next {
-  height: 100%;
+.light {
+  --void: #F0F4FF;
+  --navy: #E8EEFF;
+  --indigo: #1B2FA8;
+  --sky: #1B2FA8;
+  --snow: #0A0F2E;
+  --muted: #475569;
+  --surface: #DDEEFF;
+  --border: rgba(27, 47, 168, 0.15);
+}
+
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+html {
+  scroll-behavior: smooth;
 }
 
 body {
-  font-family: Inter, ui-sans-serif, system-ui;
+  background-color: var(--void);
+  color: var(--snow);
+  font-family: 'Inter', sans-serif;
   -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
 }
 
-/* Utility for subtle card glass */
-.card-glass {
-  background: linear-gradient(180deg, rgba(255,255,255,0.025), rgba(255,255,255,0.01));
-  border: 1px solid rgba(255,255,255,0.04);
-  backdrop-filter: blur(6px);
-}
+.font-display { font-family: 'Space Grotesk', sans-serif; }
+.font-body { font-family: 'Inter', sans-serif; }
 
-/* chart container smoothing */
-.chart-wrapper {
+/* Colors */
+.bg-void { background-color: var(--void); }
+.bg-navy { background-color: var(--navy); }
+.bg-surface { background-color: var(--surface); }
+.text-snow { color: var(--snow); }
+.text-sky { color: var(--sky); }
+.text-muted { color: var(--muted); }
+.text-indigo { color: var(--indigo); }
+.border-glow { border-color: var(--border); }
+
+/* Card */
+.card {
+  background: var(--surface);
+  border: 1px solid var(--border);
   border-radius: 12px;
-  overflow: hidden;
+  transition: border-color 0.2s, transform 0.2s;
 }
+.card:hover {
+  border-color: rgba(56, 189, 248, 0.35);
+  transform: translateY(-2px);
+}
+
+/* Tag pill */
+.tag {
+  display: inline-block;
+  padding: 2px 10px;
+  border-radius: 999px;
+  font-size: 11px;
+  font-weight: 600;
+  letter-spacing: 0.05em;
+  text-transform: uppercase;
+  background: rgba(56, 189, 248, 0.1);
+  color: var(--sky);
+  border: 1px solid rgba(56, 189, 248, 0.2);
+}
+
+/* Ghost grid background */
+.grid-bg {
+  background-image:
+    linear-gradient(rgba(56, 189, 248, 0.03) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(56, 189, 248, 0.03) 1px, transparent 1px);
+  background-size: 40px 40px;
+}
+
+/* Scrollbar */
+::-webkit-scrollbar { width: 4px; }
+::-webkit-scrollbar-track { background: var(--void); }
+::-webkit-scrollbar-thumb { background: var(--indigo); border-radius: 4px; }
