@@ -19,7 +19,7 @@ export default function App() {
   }, [dark])
 
   const pages: Record<Page, React.ReactNode> = {
-    home: <HomePage />,
+    home: <HomePage onNavigate={setPage} />,
     intelligence: <IntelligencePage />,
     trade: <TradePage />,
     about: <AboutPage />,
@@ -28,11 +28,13 @@ export default function App() {
 
   return (
     <div className={dark ? 'dark' : ''}>
-      <div className="min-h-screen bg-void text-snow dark:bg-void dark:text-snow relative overflow-hidden font-body">
-        {/* Dark/Light Toggle */}
+      <div className="min-h-screen relative overflow-hidden" style={{ background: '#07071A', color: '#E2E8F0' }}>
+
+        {/* Theme toggle */}
         <button
           onClick={() => setDark(!dark)}
-          className="fixed top-4 right-4 z-50 w-10 h-10 rounded-full flex items-center justify-center bg-surface border border-indigo-800/40 text-sky text-sm hover:bg-indigo-900/40 transition-all"
+          className="fixed top-4 right-4 z-50 w-10 h-10 rounded-full flex items-center justify-center text-sm transition-all"
+          style={{ background: 'rgba(15,21,53,0.9)', border: '1px solid rgba(56,189,248,0.2)', color: '#38BDF8' }}
           aria-label="Toggle theme"
         >
           {dark ? '☀' : '☾'}
@@ -40,27 +42,26 @@ export default function App() {
 
         {/* Logo */}
         <div className="fixed top-4 left-4 z-50">
-          <span className="font-display font-bold text-lg tracking-tight">
-            <span className="text-sky">cw</span>
-            <span className="text-snow">MIRA</span>
+          <span className="font-bold text-lg tracking-tight" style={{ fontFamily: 'Inter, sans-serif' }}>
+            <span style={{ color: '#38BDF8' }}>cw</span>
+            <span style={{ color: '#E2E8F0' }}>MIRA</span>
           </span>
         </div>
 
-        {/* Page Content */}
+        {/* Page content */}
         <AnimatePresence mode="wait">
           <motion.div
             key={page}
-            initial={{ opacity: 0, y: 12 }}
+            initial={{ opacity: 0, y: 10 }}
             animate={{ opacity: 1, y: 0 }}
-            exit={{ opacity: 0, y: -12 }}
-            transition={{ duration: 0.25, ease: 'easeOut' }}
-            className="pb-28 pt-16 min-h-screen"
+            exit={{ opacity: 0, y: -10 }}
+            transition={{ duration: 0.22, ease: 'easeOut' }}
+            className="pb-28 pt-14"
           >
             {pages[page]}
           </motion.div>
         </AnimatePresence>
 
-        {/* Bottom Nav */}
         <BottomNav current={page} onChange={setPage} />
       </div>
     </div>
