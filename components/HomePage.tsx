@@ -379,7 +379,7 @@ export default function HomePage({ onNavigate }: { onNavigate?: (p: Page) => voi
     step: '03',
     title: 'Connect and Deploy',
     desc: 'Subscribe to intelligence drops or reach out directly for advisory. No noise, no schedule — only signal when it matters.',
-    icon: '*',
+    icon: '◆',
     page: 'contact',
   },
 ]
