@@ -355,7 +355,7 @@ export default function HomePage({ onNavigate }: { onNavigate?: (p: Page) => voi
                   <h3 className="font-bold text-base leading-snug"
                     style={{ color: '#E2E8F0', fontFamily: "'Times New Roman', Times, serif" }}>{item.title}</h3>
                 </div>
-                <span className="text-lg group-hover:translate-x-1 transition-transform mt-1" style={{ color: '#38BDF8' }}>-></span>
+                <span className="text-lg transition-transform mt-1" style={{ color: '#38BDF8' }}>-&gt;</span>
               </div>
               <p className="text-xs leading-relaxed mb-3"
                 style={{ color: '#64748B', fontFamily: 'Inter, sans-serif' }}>{item.summary}</p>
